@@ -5,14 +5,14 @@ const particleCtx = particleCanvas.getContext("2d");
 
 const maxWidth = 20;
 const maxHeight = 20;
-const acceleration = 0.0001;
-const maxHorizontalVelocity = 0.02;
-const maxVerticalVelocity = -2;
+const acceleration = 0.003;
+const maxHorizontalVelocity = 0.3;
+const maxVerticalVelocity = -0.7;
 const maxBlocksPerClick = 10;
 
 const maxBackgroundWidth = 200;
 const maxBackgroundHeight = 200;
-const maxBackgroundHorizontalVelocity = 0.002;
+const maxBackgroundHorizontalVelocity = 0.2;
 
 function resizeCanvas() {
     backgroundCanvas.width = window.innerWidth;
@@ -42,7 +42,7 @@ function drawBackgroundBlocks(timestamp) {
             block.timestamp = timestamp;
         }
 
-        block.x = block.x + (block.uHor * (timestamp - block.timestamp))
+        block.x = block.x_start + block.uHor * (timestamp - block.timestamp);
 
         backgroundCtx.fillStyle = "#f0f";
         backgroundCtx.globalCompositeOperation = "destination-over";
@@ -63,8 +63,9 @@ function updatePhysics(block, timestamp) {
     }
 
     time = timestamp - block.timestamp;
-    block.x = block.x + (block.uHor * time);
-    block.y = block.y + (block.uVer + (acceleration * time * time));
+
+    block.x = block.x_start + block.uHor * time;
+    block.y = block.y_start + block.uVer * time + acceleration * time * time * 0.5;
 }
 
 function draw(timestamp) {
@@ -95,6 +96,8 @@ function handleClick(event) {
         blocks.push({
             x: event.clientX,
             y: event.clientY,
+            x_start: event.clientX,
+            y_start: event.clientY,
             w: maxWidth * Math.random() + 10,
             h: maxHeight * Math.random() + 10,
             opacity: opacity,
@@ -120,6 +123,7 @@ function spawnBackgroundBlock() {
         backgroundBlocks.push({
             x: x,
             y: particleCanvas.height * Math.random(),
+            x_start: x,
             w: maxBackgroundWidth * Math.random() + 50,
             h: maxBackgroundHeight * Math.random(),
             uHor: uHor,
