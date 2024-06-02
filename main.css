@@ -17,6 +17,7 @@ body {
     font-style: normal;
     margin: 0px;
     overflow: hidden;
+    user-select: none;
 }
 
 canvas {

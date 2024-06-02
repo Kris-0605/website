@@ -7,7 +7,7 @@ const maxWidth = 20;
 const maxHeight = 20;
 const acceleration = 0.003;
 const maxHorizontalVelocity = 0.3;
-const maxVerticalVelocity = -0.7;
+const maxVerticalVelocity = -0.3;
 const maxBlocksPerClick = 10;
 
 const maxBackgroundWidth = 200;
