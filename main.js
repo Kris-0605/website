@@ -56,7 +56,6 @@ function drawBackgroundBlocks(timestamp) {
     }
 }
 
-// Make the blocks fall
 function updatePhysics(block, timestamp) {
     if (block.timestamp === 0) {
         block.timestamp = timestamp;
@@ -88,25 +87,30 @@ function draw(timestamp) {
 
 requestAnimationFrame(draw);
 
-function handleClick(event) {
-    let numOfBlocks = maxBlocksPerClick * Math.random();
+function spawnBlock(colour, amount, x, y) {
     let opacity = Math.random() + 0.3;
 
-    for (let i = 0; i < numOfBlocks; i++) {
+    for (let i = 0; i < amount; i++) {
         blocks.push({
-            x: event.clientX,
-            y: event.clientY,
-            x_start: event.clientX,
-            y_start: event.clientY,
+            x: x,
+            y: y,
+            x_start: x,
+            y_start: y,
             w: maxWidth * Math.random() + 10,
             h: maxHeight * Math.random() + 10,
             opacity: opacity,
             uHor: 2 * maxHorizontalVelocity * Math.random() - maxHorizontalVelocity,
             uVer: 4 * maxVerticalVelocity * Math.random() - maxVerticalVelocity,
             timestamp: 0,
-            colour: 0,
+            colour: colour,
         });
     }
+}
+
+function handleClick(event) {
+    let numOfBlocks = maxBlocksPerClick * Math.random();
+    spawnBlock(0, numOfBlocks, event.clientX, event.clientY);
+    socket.send(new Float32Array([event.clientX / particleCanvas.width, event.clientY / particleCanvas.height]))
 }
 
 document.addEventListener('click', handleClick);
@@ -134,3 +138,38 @@ function spawnBackgroundBlock() {
 
 setInterval(spawnBackgroundBlock, 1000)
 setInterval(cullBlocks, 200)
+
+function updateCounter(event) {
+    document.getElementById("value").innerHTML = String(new Uint32Array(event.data)[0]);
+}
+
+function openWebSocket(event) {
+    const socket = new WebSocket("ws://particle.kris.software/");
+    socket.binaryType = 'arraybuffer';
+
+    socket.addEventListener("open", (event) => { requestUpdateCounter(); });
+    socket.addEventListener("close", openWebSocket);
+    socket.addEventListener("error", openWebSocket);
+    socket.addEventListener("message", (event) => {
+        data = new Float32Array(event.data);
+        if (data.length === 1) {
+            updateCounter(event);
+        } else {
+            if (Math.random() < 0.5) {
+                colour = 1;
+            } else {
+                colour = 2;
+            }
+            spawnBlock(colour, 1, data[0] * particleCanvas.width, data[1] * particleCanvas.height);
+        }
+    });
+    return socket;
+}
+
+let socket = openWebSocket();
+
+function requestUpdateCounter() {
+    socket.send(new Uint8Array([0]))
+}
+
+setInterval(requestUpdateCounter, 5000);
