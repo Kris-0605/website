@@ -14,10 +14,10 @@ async def send_data(uri, connection_number):
             print(f"Connection {connection_number} closed")
 
 async def main():
-    uri = "ws://particle.kris.software/"
+    uri = "wss://particle.kris.software/"
     tasks = []
 
-    for i in range(500):
+    for i in range(1):
         task = asyncio.create_task(send_data(uri, i))
         tasks.append(task)
 

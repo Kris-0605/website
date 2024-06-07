@@ -40,4 +40,4 @@ async def websocket_handler(request):
 if __name__ == '__main__':
     app = aiohttp.web.Application()
     app.router.add_get('/', websocket_handler)
-    aiohttp.web.run_app(app, port=80)
+    aiohttp.web.run_app(app, port=727)

@@ -144,7 +144,7 @@ function updateCounter(event) {
 }
 
 function openWebSocket(event) {
-    const socket = new WebSocket("ws://particle.kris.software/");
+    const socket = new WebSocket("wss://particle.kris.software/");
     socket.binaryType = 'arraybuffer';
 
     socket.addEventListener("open", (event) => { requestUpdateCounter(); });
