@@ -17,7 +17,7 @@ async def main():
     uri = "wss://particle.kris.software/"
     tasks = []
 
-    for i in range(500):
+    for i in range(300):
         task = asyncio.create_task(send_data(uri, i))
         tasks.append(task)
 
