@@ -88,7 +88,8 @@ h2,
 }
 
 h2,
-.github h2 a {
+.github h2 a,
+#cursor2 {
     font-size: 2rem;
 }
 
@@ -109,7 +110,8 @@ h2,
     }
 
     h2,
-    .github h2 a {
+    .github h2 a,
+    #cursor2 {
         font-size: 5vw;
     }
 }
