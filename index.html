@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Kris Software is the home of projects by Kris, a 19-year old British software developer.">
     <title>Kris Software</title>
-    <link rel="stylesheet" href="main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@500&display=swap" rel="stylesheet">
@@ -15,6 +14,94 @@
     <meta content="https://kris.software" property="og:url">
     <meta content="https://kris.software/kris.webp" property="og:image">
     <meta content="#ff00ff" data-react-helmet="true" name="theme-color">
+    <style>
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: "Kode Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    margin: 0px;
+    overflow: hidden;
+    user-select: none;
+}
+
+canvas {
+    position: absolute;
+}
+
+#background {
+    z-index: -2;
+}
+
+#particle {
+    z-index: -1;
+}
+
+.page-content {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(5px);
+    height: 100%;
+}
+
+.page-content * {
+    display: inline;
+}
+
+.title img {
+    height: 2.1rem;
+    padding: 0rem;
+    margin: 0rem;
+}
+
+h1,
+h2,
+.github h2 a {
+    font-size: 3rem;
+    color: black;
+    margin-bottom: 0rem;
+    margin-top: 1rem;
+}
+
+h2,
+.github h2 a,
+#cursor2 {
+    font-size: 2rem;
+}
+
+@media only screen and (max-width: 586px) {
+    .page-content {
+        padding: 2.73vw;
+    }
+
+    .title img {
+        height: 5.73vw;
+    }
+
+    h1,
+    h2,
+    .github h2 a {
+        font-size: 8.19vw;
+        margin-top: 2.73vw;
+    }
+
+    h2,
+    .github h2 a,
+    #cursor2 {
+        font-size: 5vw;
+    }
+}
+    </style>
 </head>
 <body>
     <canvas id="background"></canvas>
@@ -50,6 +137,456 @@
                 <span>T</span><span>r</span><span>y</span><span> </span><span>c</span><span>l</span><span>i</span><span>c</span><span>k</span><span>i</span><span>n</span><span>g</span><span> </span><span>a</span><span>r</span><span>o</span><span>u</span><span>n</span><span>d</span><span>!</span></h2><span class="cursor" id="cursor2">█</span>
         </div>
     </div>
-    <script src="main.js" type="text/javascript"></script>
+<style>
+:root {
+    --github: #a58fe2;
+}
+
+@keyframes reveal-white {
+    0% {
+        color: black;
+        background-color: black;
+    }
+
+    49.99% {
+        color: black;
+        background-color: black;
+    }
+
+    50% {
+        color: white;
+        background-color: white;
+    }
+
+    99.99% {
+        color: white;
+        background-color: white;
+    }
+
+    100% {
+        color: white;
+        background-color: transparent;
+    }
+}
+
+h1 span,
+h2 span {
+    animation: reveal-white 0.08s forwards;
+}
+
+h2 span {
+    animation-duration: 0.04s;
+}
+
+h1 span:nth-child(1),
+.github h2 a:nth-child(1) {
+    animation-delay: 0.04s;
+}
+
+h1 span:nth-child(2),
+.github h2 a:nth-child(2) {
+    animation-delay: 0.08s;
+}
+
+h1 span:nth-child(3),
+.github h2 a:nth-child(3) {
+    animation-delay: 0.12s;
+}
+
+h1 span:nth-child(4),
+.github h2 a:nth-child(4) {
+    animation-delay: 0.16s;
+}
+
+h1 span:nth-child(5),
+.github h2 a:nth-child(5) {
+    animation-delay: 0.2s;
+}
+
+h1 span:nth-child(6),
+.github h2 a:nth-child(6) {
+    animation-delay: 0.24s;
+}
+
+h1 span:nth-child(7),
+.github h2 a:nth-child(7) {
+    animation-delay: 0.28s;
+}
+
+h1 span:nth-child(8),
+.github h2 a:nth-child(8) {
+    animation-delay: 0.32s;
+}
+
+h1 span:nth-child(9),
+.github h2 a:nth-child(9) {
+    animation-delay: 0.36s;
+}
+
+h1 span:nth-child(10) {
+    animation-delay: 0.4s;
+}
+
+h1 span:nth-child(11) {
+    animation-delay: 0.44s;
+}
+
+h1 span:nth-child(12) {
+    animation-delay: 0.48s;
+}
+
+h1 span:nth-child(13) {
+    animation-delay: 0.52s;
+}
+
+h2 span:nth-child(1) {
+    animation-delay: 0.02s;
+}
+
+h2 span:nth-child(2) {
+    animation-delay: 0.04s;
+}
+
+h2 span:nth-child(3) {
+    animation-delay: 0.06s;
+}
+
+h2 span:nth-child(4) {
+    animation-delay: 0.08s;
+}
+
+h2 span:nth-child(5) {
+    animation-delay: 0.1s;
+}
+
+h2 span:nth-child(6) {
+    animation-delay: 0.12s;
+}
+
+h2 span:nth-child(7) {
+    animation-delay: 0.14s;
+}
+
+h2 span:nth-child(8) {
+    animation-delay: 0.16s;
+}
+
+h2 span:nth-child(9) {
+    animation-delay: 0.18s;
+}
+
+h2 span:nth-child(10) {
+    animation-delay: 0.2s;
+}
+
+h2 span:nth-child(11) {
+    animation-delay: 0.22s;
+}
+
+h2 span:nth-child(12) {
+    animation-delay: 0.24s;
+}
+
+h2 span:nth-child(13) {
+    animation-delay: 0.26s;
+}
+
+h2 span:nth-child(14) {
+    animation-delay: 0.28s;
+}
+
+h2 span:nth-child(15) {
+    animation-delay: 0.3s;
+}
+
+h2 span:nth-child(16) {
+    animation-delay: 0.32s;
+}
+
+h2 span:nth-child(17) {
+    animation-delay: 0.34s;
+}
+
+h2 span:nth-child(18) {
+    animation-delay: 0.36s;
+}
+
+h2 span:nth-child(19) {
+    animation-delay: 0.38s;
+}
+
+h2 span:nth-child(20) {
+    animation-delay: 0.4s;
+}
+
+h2 span:nth-child(21) {
+    animation-delay: 0.42s;
+}
+
+h2 span:nth-child(22) {
+    animation-delay: 0.44s;
+}
+
+h2 span:nth-child(23) {
+    animation-delay: 0.46s;
+}
+
+h2 span:nth-child(24) {
+    animation-delay: 0.48s;
+}
+
+h2 span:nth-child(25) {
+    animation-delay: 0.5s;
+}
+
+h2 span:nth-child(26) {
+    animation-delay: 0.52s;
+}
+
+h2 span:nth-child(27) {
+    animation-delay: 0.54s;
+}
+
+@keyframes reveal-github {
+    0% {
+        color: black;
+        background-color: black;
+    }
+
+    49.99% {
+        color: black;
+        background-color: black;
+    }
+
+    50% {
+        color: var(--github);
+        background-color: var(--github);
+    }
+
+    99.99% {
+        color: var(--github);
+        background-color: var(--github);
+    }
+
+    100% {
+        color: var(--github);
+        background-color: transparent;
+    }
+}
+
+.github h2 {
+    display: inline-block;
+}
+
+.github h2 a {
+    animation: reveal-github 0.08s forwards;
+}
+
+@keyframes cursor {
+    0% {
+        opacity: 100%;
+    }
+
+    50% {
+        opacity: 100%;
+    }
+
+    50.01% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 0%;
+    }
+}
+
+.counter {
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.cursor {
+    opacity: 0%;
+    animation: cursor 1s infinite 0.56s;
+    color: white;
+}
+</style>
+    <script type="text/javascript">
+const backgroundCanvas = document.getElementById("background");
+const backgroundCtx = backgroundCanvas.getContext("2d");
+const particleCanvas = document.getElementById("particle");
+const particleCtx = particleCanvas.getContext("2d");
+
+const maxWidth = 20;
+const maxHeight = 20;
+const acceleration = 0.003;
+const maxHorizontalVelocity = 0.3;
+const maxVerticalVelocity = -0.3;
+const maxBlocksPerClick = 10;
+
+const maxBackgroundWidth = 200;
+const maxBackgroundHeight = 200;
+const maxBackgroundHorizontalVelocity = 0.2;
+
+function resizeCanvas() {
+    backgroundCanvas.width = window.innerWidth;
+    backgroundCanvas.height = window.innerHeight;
+    particleCanvas.width = window.innerWidth;
+    particleCanvas.height = window.innerHeight;
+}
+
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+let blocks = [];
+let backgroundBlocks = [];
+
+function cullBlocks() {
+    blocks = blocks.filter(function (item) { return item.y < particleCanvas.height });
+    backgroundBlocks = backgroundBlocks.filter(function (item) { return item.x >= -maxBackgroundWidth - 50 && item.x <= backgroundCanvas.width + 50 })
+}
+
+function drawBackgroundBlocks(timestamp) {
+    backgroundCtx.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
+
+    for (let i = 0; i < backgroundBlocks.length; i++) {
+        let block = backgroundBlocks[i]
+
+        if (block.timestamp === 0) {
+            block.timestamp = timestamp;
+        }
+
+        block.x = block.x_start + block.uHor * (timestamp - block.timestamp);
+
+        backgroundCtx.fillStyle = "#f0f";
+        backgroundCtx.globalCompositeOperation = "destination-over";
+        backgroundCtx.fillRect(block.x, block.y, block.w, block.h);
+        backgroundCtx.globalCompositeOperation = "lighter";
+        backgroundCtx.shadowBlur = block.w / 10;
+        backgroundCtx.shadowColor = "#f0f";
+        backgroundCtx.shadowOffsetX = 0;
+        backgroundCtx.shadowOffsetY = 0;
+        backgroundCtx.fillRect(block.x - backgroundCtx.shadowBlur, block.y - backgroundCtx.shadowBlur, block.w + 2 * backgroundCtx.shadowBlur, block.h + 2 * backgroundCtx.shadowBlur);
+    }
+}
+
+function updatePhysics(block, timestamp) {
+    if (block.timestamp === 0) {
+        block.timestamp = timestamp;
+    }
+
+    time = timestamp - block.timestamp;
+
+    block.x = block.x_start + block.uHor * time;
+    block.y = block.y_start + block.uVer * time + acceleration * time * time * 0.5;
+}
+
+function draw(timestamp) {
+    particleCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+    drawBackgroundBlocks(timestamp);
+    for (let i = 0; i < blocks.length; i++) {
+        let block = blocks[i];
+        updatePhysics(block, timestamp);
+        if (block.colour === 0) {
+            particleCtx.fillStyle = `rgba(255, 0, 255, ${block.opacity})`;
+        } else if (block.colour === 1) {
+            particleCtx.fillStyle = `rgba(0, 0, 255, ${block.opacity})`;
+        } else {
+            particleCtx.fillStyle = `rgba(255, 0, 0, ${block.opacity})`;
+        }
+        particleCtx.fillRect(block.x, block.y, block.w, block.h);
+    }
+    requestAnimationFrame(draw);
+}
+
+requestAnimationFrame(draw);
+
+function spawnBlock(colour, amount, x, y) {
+    let opacity = Math.random() + 0.3;
+
+    for (let i = 0; i < amount; i++) {
+        blocks.push({
+            x: x,
+            y: y,
+            x_start: x,
+            y_start: y,
+            w: maxWidth * Math.random() + 10,
+            h: maxHeight * Math.random() + 10,
+            opacity: opacity,
+            uHor: 2 * maxHorizontalVelocity * Math.random() - maxHorizontalVelocity,
+            uVer: 4 * maxVerticalVelocity * Math.random() - maxVerticalVelocity,
+            timestamp: 0,
+            colour: colour,
+        });
+    }
+}
+
+function handleClick(event) {
+    let numOfBlocks = maxBlocksPerClick * Math.random();
+    spawnBlock(0, numOfBlocks, event.clientX, event.clientY);
+    socket.send(new Float32Array([event.clientX / particleCanvas.width, event.clientY / particleCanvas.height]))
+}
+
+document.addEventListener('click', handleClick);
+
+function spawnBackgroundBlock() {
+    if (!document.hidden) {
+        let uHor = 2 * maxBackgroundHorizontalVelocity * Math.random() - maxBackgroundHorizontalVelocity + 0.0005;
+        if (uHor > 0) {
+            x = -maxBackgroundWidth - 50;
+        } else {
+            x = particleCanvas.width + 50;
+        }
+
+        backgroundBlocks.push({
+            x: x,
+            y: particleCanvas.height * Math.random(),
+            x_start: x,
+            w: maxBackgroundWidth * Math.random() + 50,
+            h: maxBackgroundHeight * Math.random(),
+            uHor: uHor,
+            timestamp: 0,
+        })
+    }
+}
+
+setInterval(spawnBackgroundBlock, 1000)
+setInterval(cullBlocks, 200)
+
+function updateCounter(event) {
+    document.getElementById("value").innerHTML = String(new Uint32Array(event.data)[0]);
+}
+
+function openWebSocket(event) {
+    const socket = new WebSocket("wss://particle.kris.software/");
+    socket.binaryType = 'arraybuffer';
+
+    socket.addEventListener("open", (event) => { requestUpdateCounter(); });
+    socket.addEventListener("close", openWebSocket);
+    socket.addEventListener("error", openWebSocket);
+    socket.addEventListener("message", (event) => {
+        data = new Float32Array(event.data);
+        if (data.length === 1) {
+            updateCounter(event);
+        } else {
+            if (Math.random() < 0.5) {
+                colour = 1;
+            } else {
+                colour = 2;
+            }
+            spawnBlock(colour, 1, data[0] * particleCanvas.width, data[1] * particleCanvas.height);
+        }
+    });
+    return socket;
+}
+
+let socket = openWebSocket();
+
+function requestUpdateCounter() {
+    socket.send(new Uint8Array([0]))
+}
+
+setInterval(requestUpdateCounter, 5000);
+    </script>
 </body>
 </html>
