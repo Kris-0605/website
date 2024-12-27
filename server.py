@@ -2,7 +2,8 @@ import aiohttp.web
 from tqdm import tqdm
 from time import time
 
-limit = 50000 # how many packets per second can the server handle?
+PORT = 8000
+LIMIT = 50000 # how many packets per second can the server handle?
 
 pbar = tqdm(desc="Packets sent")
 
@@ -21,7 +22,7 @@ async def websocket_handler(request):
                 await ws.send_bytes(len(connected_websockets).to_bytes(4, "little"))
                 pbar.update(1)
             elif length == 8:
-                if ws.time < time() - ((len(connected_websockets) ** 2) / limit):
+                if ws.time < time() - ((len(connected_websockets) ** 2) / LIMIT):
                     for socket in connected_websockets:
                         if socket != ws:
                             try:
@@ -40,4 +41,4 @@ async def websocket_handler(request):
 if __name__ == '__main__':
     app = aiohttp.web.Application()
     app.router.add_get('/', websocket_handler)
-    aiohttp.web.run_app(app, port=727)
+    aiohttp.web.run_app(app, port=PORT)

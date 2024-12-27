@@ -3,6 +3,8 @@ import websockets
 from numpy import float32
 from random import random
 
+CONNECTIONS = 300
+
 async def send_data(uri, connection_number):
     async with websockets.connect(uri) as websocket:
         try:
@@ -14,10 +16,10 @@ async def send_data(uri, connection_number):
             print(f"Connection {connection_number} closed")
 
 async def main():
-    uri = "wss://particle.kris.software/"
+    uri = "ws://cashford.richardlander.cornwall.sch.uk:8000/"
     tasks = []
 
-    for i in range(300):
+    for i in range(CONNECTIONS):
         task = asyncio.create_task(send_data(uri, i))
         tasks.append(task)
 

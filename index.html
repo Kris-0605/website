@@ -129,12 +129,17 @@ h2,
         </div>
         <div class="counter">
             <h2>
-                <span id="value">0</span><span> </span><span>p</span><span>e</span><span>o</span><span>p</span><span>l</span><span>e</span><span> </span><span>a</span><span>r</span><span>e</span><span> </span><span>c</span><span>u</span><span>r</span><span>r</span><span>e</span><span>n</span><span>t</span><span>l</span><span>y</span><span> </span><span>h</span><span>e</span><span>r</span><span>e</span>
+                <span id="value">0</span><span> </span><span>p</span><span>e</span><span>o</span><span>p</span><span>l</span><span>e</span><span> </span><span>h</span><span>e</span><span>r</span><span>e</span><span> </span><span>r</span><span>i</span><span>g</span><span>h</span><span>t</span><span> </span><span>n</span><span>o</span><span>w</span>
             </h2>
         </div>
         <div>
             <h2>
-                <span>T</span><span>r</span><span>y</span><span> </span><span>c</span><span>l</span><span>i</span><span>c</span><span>k</span><span>i</span><span>n</span><span>g</span><span> </span><span>a</span><span>r</span><span>o</span><span>u</span><span>n</span><span>d</span><span>!</span></h2><span class="cursor" id="cursor2">█</span>
+                <span>T</span><span>r</span><span>y</span><span> </span><span>c</span><span>l</span><span>i</span><span>c</span><span>k</span><span>i</span><span>n</span><span>g</span><span> </span><span>a</span><span>r</span><span>o</span><span>u</span><span>n</span><span>d</span><span>!</span>
+            </h2>
+        </div>
+        <div>
+            <h2>
+                <span>R</span><span>e</span><span>d</span><span>/</span><span>b</span><span>l</span><span>u</span><span>e</span><span> </span><span>=</span><span> </span><span>o</span><span>t</span><span>h</span><span>e</span><span>r</span><span>'</span><span>s</span><span> </span><span>c</span><span>l</span><span>i</span><span>c</span><span>k</span><span>s</span></h2><span class="cursor" id="cursor2">█</span>
         </div>
     </div>
 <style>
@@ -558,7 +563,7 @@ function updateCounter(event) {
 }
 
 function openWebSocket(event) {
-    const socket = new WebSocket("wss://particle.kris.software/");
+    const socket = new WebSocket("ws://cashford.richardlander.cornwall.sch.uk:8000/");
     socket.binaryType = 'arraybuffer';
 
     socket.addEventListener("open", (event) => { requestUpdateCounter(); });
@@ -586,7 +591,7 @@ function requestUpdateCounter() {
     socket.send(new Uint8Array([0]))
 }
 
-setInterval(requestUpdateCounter, 5000);
+setInterval(requestUpdateCounter, 1000); // update "x people online" every second
     </script>
 </body>
 </html>
