@@ -16,7 +16,7 @@ async def send_data(uri, connection_number):
             print(f"Connection {connection_number} closed")
 
 async def main():
-    uri = "ws://cashford.richardlander.cornwall.sch.uk:8000/"
+    uri = "wss://cashford.richardlander.cornwall.sch.uk:8000/"
     tasks = []
 
     for i in range(CONNECTIONS):

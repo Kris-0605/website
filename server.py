@@ -2,7 +2,7 @@ import aiohttp.web
 from tqdm import tqdm
 from time import time
 
-PORT = 8000
+PORT = 727
 LIMIT = 50000 # how many packets per second can the server handle?
 
 pbar = tqdm(desc="Packets sent")
